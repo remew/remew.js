@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<h1>Hello remew.js</h1>
+		<p id="p"></p>
+		<input id="input" type="text">
+		<input id="checkbox" type="checkbox">
+		<script src="build/remew.min.js"></script>
+		<script>
+var input = document.getElementById('input');
+var p			= document.getElementById('p');
+var checkbox = document.getElementById('checkbox');
+
+var obj = {value: ''};
+remew.observe(obj, 'value', function(prop, n, o) {
+		p.innerText = n;
+		input.value = n;
+});
+remew.observe(input, function(prop, n, o) {
+		p.innerText = n;
+		obj.value = n;
+});
+
+remew.observe(checkbox, function(prop, n, o) {
+		console.log('before:', o, 'after:', n);
+});
+
+/**
+ * I want to write following code...
+ *
+ * remew.bind(obj, 'value', p, 'innerText');
+ * remew.bind(input, obj, 'value');
+ */
+		</script>
+	</body>
+</html>
+
+
