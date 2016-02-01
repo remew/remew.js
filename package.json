@@ -1,8 +1,9 @@
 {
   "name": "remew.js",
   "version": "0.0.1",
+  "private": true,
   "description": "my utility library",
-  "main": "remew.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +12,8 @@
     "url": "git+https://github.com/remew/remew.js.git"
   },
   "keywords": [
-    "remew"
+    "remew",
+    "remew.js"
   ],
   "author": "remew",
   "license": "MIT",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/remew/remew.js#readme",
   "devDependencies": {
+    "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",

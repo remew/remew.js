@@ -7,7 +7,25 @@ let uglify = require('gulp-uglify');
 let rename = require('gulp-rename');
 let del = require('del');
 
+let browserSync = require('browser-sync');
+let reload = browserSync.reload;
+
 gulp.task('default', ['build']);
+
+gulp.task('serve', ['build'], () => {
+	browserSync({
+		port: 8000,
+		notify: true,
+		server: {
+		}
+	});
+	gulp.watch(['lib/**/*.js'], ['build', reload]);
+	gulp.watch(['index.html'], reload);
+});
+
+gulp.task('watch', ['build'], () => {
+	gulp.watch(['lib/**/*.js'], 'build');
+});
 
 gulp.task('clean', () => {
 	return del('build/*');
@@ -16,7 +34,7 @@ gulp.task('clean', () => {
 gulp.task('browserify', ['clean'], () => {
 	return browserify({
 		entries: [
-			'src/remew.js',
+			'lib/remew.js',
 		],
 	})
 	.bundle()
