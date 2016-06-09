@@ -1,14 +1,14 @@
 'use strict';
 
-let gulp = require('gulp');
-let browserify = require('browserify');
-let source = require('vinyl-source-stream');
-let uglify = require('gulp-uglify');
-let rename = require('gulp-rename');
-let del = require('del');
+const gulp = require('gulp');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const del = require('del');
 
-let browserSync = require('browser-sync');
-let reload = browserSync.reload;
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
 
 gulp.task('default', ['build']);
 
